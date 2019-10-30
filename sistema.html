@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+body{
+    margin: 0px;
+    background-color: black;
+}
+ 
+        .cabecera{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color:white;
+            
+       
+        }
+
+        .logo{
+            width: 10%;
+        }
+        menu{
+            display: flex;
+            flex-direction: column;
+            color: blue;
+          
+        }
+        
+        .todosLosPlanetas{
+            display: flex;
+            flex-direction:row;
+            flex-wrap: wrap;            
+            color:white;
+            justify-content: center;
+            
+            
+           
+        }
+
+        .imagenes {
+
+            width: 400px;
+            
+        }
+
+        footer{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            font-size: 10px;
+            color:white;
+           
+        }
+
+
+    
+    </style>
+</head>
+
+<body>
+    <div id="contenido"></div>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+
+let sistemaSolar = {
+    planetas: [
+        {
+            nombre: "mercurio",
+            color: "gris",
+            imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Mercury_in_color_-_Prockter07_centered.jpg/1024px-Mercury_in_color_-_Prockter07_centered.jpg"
+        },
+        {
+            nombre: "venus",
+            color: "blanco",
+            imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Venus-real_color.jpg/220px-Venus-real_color.jpg"
+        },
+        {
+            nombre: "tierra",
+            color: "azul",
+            imagen: "https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/5a0ab2a75bafe87f4d3f9a63/acaba-tiempo_0.jpg"
+        },
+        {
+            nombre: "marte",
+            color: "rojo",
+            imagen: "https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/55365b6b34099b0279c8fb2e/slide-marte.jpg"
+        },
+        {
+            nombre: "jupiter",
+            color: "marrón",
+            imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Jupiter_by_Cassini-Huygens.jpg/280px-Jupiter_by_Cassini-Huygens.jpg"
+        },
+        {
+            nombre: "saturno",
+            color: "amarillo",
+            imagen: "https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/558d2b15010e26221b57df75/saturno.jpg"
+        },
+        {
+            nombre: "urano",
+            color: "azul",
+            imagen: "http://www.manzanares.es/v2/sites/paseo/img/urano/urano1.jpg"
+        },
+        {
+            nombre: "neptuno",
+            color: "azul",
+            imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Neptune_Full.jpg/280px-Neptune_Full.jpg"
+        }
+    ]
+};  
+
+
+        function Planeta(props) {
+            return (
+                <div>
+                    <h1>{props.nombre}</h1>
+                    <p>{props.color}</p>
+                    <img className="imagenes" src={props.imagen}/>
+                </div> 
+            );
+        }
+
+        function Cabecera (props) {
+            return(
+                <div className="cabecera">
+
+                    <img className="logo" src="https://images.vexels.com/media/users/3/152324/isolated/preview/2122d6d288a2058c500ce729ae95ebcf-ilustraci--n-del-espacio-de-realidad-aumentada-by-vexels.png"/>
+                    <menu>
+                    <button>Sistema solar</button>    
+                    <button>Las estrellas</button>    
+                    <button>El cielo</button>    
+                    </menu>
+                </div>
+            )
+            
+        }
+
+
+        function Footer(props){
+            return(
+                <footer>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum velit modi ut explicabo, ullam pariatur ratione quibusdam aliquid exercitationem, saepe, provident nisi. Repellat, dicta. Error alias deleniti laboriosam explicabo. Aperiam.Exercitationem quaerat est tempora quod, ducimus totam doloremque illum nostrum rem laudantium cupiditate, ea cumque, ratione a ipsam ad dolorum placeat aliquid. Ut quod repellendus, modi iure voluptas sit consectetur?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum velit modi ut explicabo, ullam pariatur ratione quibusdam aliquid exercitationem, saepe, provident nisi. Repellat, dicta. Error alias </p>
+                    </footer>
+            )
+        }
+    
+    function App() {
+        
+        return ( 
+            <div>
+            
+        <div>
+            <Cabecera />
+        </div>
+
+           <div className="todosLosPlanetas">
+                <Planeta
+            nombre = {sistemaSolar.planetas[0].nombre}
+            color = {sistemaSolar.planetas[0].color}
+            imagen = {sistemaSolar.planetas[0].imagen}
+            />
+                <Planeta
+            nombre = {sistemaSolar.planetas[1].nombre}
+            color = {sistemaSolar.planetas[1].color}
+            imagen = {sistemaSolar.planetas[1].imagen}
+            />
+                <Planeta
+            nombre = {sistemaSolar.planetas[2].nombre}
+            color = {sistemaSolar.planetas[2].color}
+            imagen = {sistemaSolar.planetas[2].imagen}
+            />
+                <Planeta
+            nombre = {sistemaSolar.planetas[3].nombre}
+            color = {sistemaSolar.planetas[3].color}
+            imagen = {sistemaSolar.planetas[3].imagen}
+            />
+                <Planeta
+            nombre = {sistemaSolar.planetas[4].nombre}
+            color = {sistemaSolar.planetas[4].color}
+            imagen = {sistemaSolar.planetas[4].imagen}
+            />
+                <Planeta
+            nombre = {sistemaSolar.planetas[5].nombre}
+            color = {sistemaSolar.planetas[5].color}
+            imagen = {sistemaSolar.planetas[5].imagen}
+            />
+                <Planeta
+            nombre = {sistemaSolar.planetas[6].nombre}
+            color = {sistemaSolar.planetas[6].color}
+            imagen = {sistemaSolar.planetas[6].imagen}
+            />
+                <Planeta
+            nombre = {sistemaSolar.planetas[7].nombre}
+            color = {sistemaSolar.planetas[7].color}
+            imagen = {sistemaSolar.planetas[7].imagen}
+            />
+        </div>
+
+        <Footer />
+    </div>  
+        )
+    }
+
+    ReactDOM.render(<App />, document.getElementById('contenido'));
+    </script>
+</body>
+
+</html>
